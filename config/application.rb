@@ -24,5 +24,7 @@ module RecipePuppyBootstrap
     config.active_record.raise_in_transactional_callbacks = true
 
     config.use_mocks_please = false
+    ActiveSupport.halt_callback_chains_on_return_false = false
+    
   end
 end
