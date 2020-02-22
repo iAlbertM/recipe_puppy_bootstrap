@@ -19,7 +19,8 @@ class Recipe
     def self.temporary_work_around_to_account_for_error_in_httparty(keyword)
         
         response_text = get("", query: { q: keyword })
-        response_text.sub!(/<!DOCTYPE.*/m, '')
+        response_text = 
+        response_text.gsub!(/.!DOCTYPE./, "")
     
         JSON.parse(response_text)['results']
     end
