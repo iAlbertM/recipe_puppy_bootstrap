@@ -1,3 +1,5 @@
+require 'json'
+
 class Recipe
     include HTTParty
         
@@ -8,16 +10,17 @@ class Recipe
     format :json
 
     def self.for ( keyword = 'chocolate' )
-        get('', query: { q: keyword })['results']
+        # get('', query: { q: keyword })['results']
         ## Once recipepuppy.com fully working, you can
         ## uncomment the line above and comment out the line below
-        # temporary_work_around_to_account_for_error_in_httparty(keyword)
+        temporary_work_around_to_account_for_error_in_httparty(keyword)
     end
 
-    # def self.temporary_work_around_to_account_for_error_in_httparty(keyword)
-    #     response_text = get('', query: { q: keyword })
-    #     response_text.sub!(/<!DOCTYPE.*/m, '')
-    #     require 'json'
-    #     JSON.parse(response_text)['results']
-    # end
+    def self.temporary_work_around_to_account_for_error_in_httparty(keyword)
+        
+        response_text = get("", query: { q: keyword })
+        response_text.sub!(/<!DOCTYPE.*/m, '')
+    
+        JSON.parse(response_text)['results']
+    end
 end
