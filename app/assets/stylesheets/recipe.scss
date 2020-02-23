@@ -8,10 +8,24 @@ $global-radius: 4px;
 
 
 @mixin heading-font-regular {
-	font-family: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;;
+	font-family: 'Source Sans Pro', 'Helvetica Neue', 'Arial', sans-serif;;
 }
 
+h1, h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+}
 
+h1 {
+    font-weight: 900;
+    font-size: 3vw;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 2vw;
+	color: $primary-color;
+}
 //SUPER BASIC PAGE STYLING
 *,*:before,*:after{
   -webkit-box-sizing: border-box;
@@ -150,7 +164,7 @@ table {
 		}
 
 		tr:nth-of-type(even) {
-			//background: $gray-color;
+			background: $gray-color;
 			td {
 				
 				&:before {
@@ -199,7 +213,7 @@ table {
 	}
 
 	tr:nth-of-type(even) {
-		background:none;
+		background:$gray-color;
 		td {
 			
 			&:before {
@@ -271,4 +285,13 @@ table {
 #rwd-table-large {
 	@extend %responive-tables-large;
 	@include responive-tables-large('Heading Col 1', 'Heading Col 2', 'Heading Col 3','Heading Col 4');
+}
+
+img, a, a:link, a:active {
+	border-bottom: none;
+}
+img {
+	min-width: 100%;
+	width: 75px;
+	height: auto;
 }
