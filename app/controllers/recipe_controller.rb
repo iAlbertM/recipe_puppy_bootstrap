@@ -8,5 +8,7 @@ class RecipeController < ApplicationController
     @search = "chocolate"
     # :query["keyword"] = :q
     @recipes = Recipe.for(@search)
+    
+    # @recipes = Recipe.temporary_work_around_to_account_for_error_in_httparty(@search)
   end
 end

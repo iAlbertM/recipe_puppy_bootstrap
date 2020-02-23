@@ -6,7 +6,7 @@ class Recipe
     base_uri 'http://www.recipepuppy.com/api'
     default_params onlyImages: 1
 
-    ## ENABLE THE FOLLOWING LINE ONCE recipepuppy.com fully working...
+    # ENABLE THE FOLLOWING LINE ONCE recipepuppy.com fully working...
     format :json
 
     def self.for ( keyword = 'chocolate' )
@@ -17,11 +17,9 @@ class Recipe
     end
 
     def self.temporary_work_around_to_account_for_error_in_httparty(keyword)
-        
         response_text = get("", query: { q: keyword })
-        response_text = 
-        response_text.gsub!(/.!DOCTYPE./, "")
-    
+        response_text.body
+        # response_text.gsub!(/.!DOCTYPE./, "")
         JSON.parse(response_text)['results']
     end
 end
