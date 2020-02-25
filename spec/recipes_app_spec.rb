@@ -6,23 +6,23 @@ describe "Recipes App" do
     expect(page).to have_content 'Recipes for chocolate'
   end
 
-  it "displays 'Recipes for chocolate' when visiting recipes/index" do
-    visit '/recipes/index'
+  it "displays 'Recipes for chocolate' when visiting recipe/index" do
+    visit '/recipe/index'
     expect(page).to have_content 'Recipes for chocolate'
   end
 
   it "displays page for alternate search term (bread)" do
-    visit "recipes/index?search=bread"
+    visit "recipe/index?search=bread"
     expect(page).to have_content 'Our Daily Bread in a Crock - Weekly Make and Bake Rustic Bread'  	
   end
 
   it "displays utf-8 chars in the title correctly" do
-    visit "/recipes/index?search=amarula"
+    visit "/recipe/index?search=amarula"
     expect(page).to have_content 'Amarula Frappé'  	
   end
 
-  context "examine page content (view) after visiting recipes/index" do
-  	before { visit '/recipes/index' }
+  context "examine page content (view) after visiting recipe/index" do
+  	before { visit '/recipe/index' }
 
     it "displays table header row with 3 columns" do
       expect(page).to have_selector(:xpath, "//table//tr[count(th)=3]")
