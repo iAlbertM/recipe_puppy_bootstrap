@@ -6,7 +6,7 @@ class Recipe
     base_uri 'http://www.recipepuppy.com/api'
     default_params onlyImages: 1
     # ENABLE THE FOLLOWING LINE ONCE recipepuppy.com fully working...
-    # format :json
+    # format :jsond
 
      def self.for ( keyword = 'chocolate' )
         get('', query: { q: keyword })['results']
