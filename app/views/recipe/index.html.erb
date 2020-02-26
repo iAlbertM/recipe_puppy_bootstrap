@@ -1,26 +1,24 @@
-<h1>Recipes for <%= @search %> </h1>
-<h2>Search results:</h2>
+<h1>Recipes for <%= @food %> </h1>
+<h2>powered by recipepuppy.com:</h2>
 
 <table role="table">
 	<thead role="rowgroup">
 		<tr role="row">
-			<th role="columnheader">Photo</th>
-			<th role="columnheader">Title</th>
-			<th role="columnheader">Ingredients</th>
+			<th role="column_header">Photo</th>
+			<th role="column_header">Title</th>
+			<th role="column_header">Ingredients</th>
 		</tr>
 	</thead>
 	<tbody>
-
 		<% @recipes.each do |recipe| %>
-		<tr>
-
-			<td role="cell" data-label="Image"><%= link_to image_tag(recipe["thumbnail"], size: "70x50"), recipe["href"] %>
-			</td>
-			<td role="cell" data-label="Title"><%= link_to sanitize(recipe["title"]), recipe["href"] %>
-			</td>
-			<td role="cell" data-label="Ingredients"><%= recipe["ingredients"] %>
-			</td>
-		</tr>
-	<% end %>
+			<tr>
+				<td role="cell" data-label="Photo"><%= link_to image_tag( recipe["thumbnail"], size: "70x70"), recipe["href"] %>
+				</td>
+				<td role="cell" data-label="Title"><%= link_to recipe["title"], recipe["href"] %>
+				</td>
+				<td role="cell" data-label="Ingredients"><%= recipe["ingredients"] %>
+				</td>
+			</tr>
+		<% end %>
 	</tbody>
 </table>

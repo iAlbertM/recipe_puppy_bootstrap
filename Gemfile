@@ -6,7 +6,6 @@ ruby '>= 2.5.0'
 
 gem 'rails', '> 6.0.0'
 gem 'sqlite3', '>= 1.3.13', group: :development
-gem 'pg'
 gem 'sass-rails', '> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '> 4.1.0'
@@ -32,7 +31,8 @@ group :development do
 end
 
 group :production do
-	# gem 'pg'
+	gem 'puma'
+	gem 'pg'
 	gem 'rails_12factor'
 end
 

@@ -1,6 +1,6 @@
 default: &default
   adapter: postgresql
-  
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   port: 5432
@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  # url: <%= ENV['DATABASE_URL'] %>
   database: recipe_puppy_bootstrap_production
   username: postgres
-  password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
+  password: <%= ENV['RECIPE_PUPPY_BOOTSTRAP_DATABASE_PASSWORD'] %>
