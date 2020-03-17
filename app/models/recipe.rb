@@ -21,7 +21,7 @@ class Recipe
         
         response_text = get("", query: { q: keyword })
         # response.charset("utf-8")
-        response_text.encode("utf-8")
+        # response_text.encode("utf-8")
         # response_text.gsub!(/.!DOCTYPE./, "")
         JSON.parse(response_text)['results']
     end
